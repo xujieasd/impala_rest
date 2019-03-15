@@ -1,0 +1,26 @@
+{
+  "host": "10.38.240.28",
+  "port": 21050,
+  "operation":[
+    {
+      "sql_name": "sql_select1",
+      "sql_exec": "SELECT $* FROM test_parquet LIMIT 5",
+      "sql_describe": "select any column from table"
+    },
+    {
+      "sql_name": "sql_select2",
+      "sql_exec": "SELECT $key|csd|csrq FROM iap_bejwt_002573_hdfs WHERE $qbgxsj.eq AND $qbrksj.eq LIMIT 5",
+      "sql_describe": "select column range from key|csd|csrq where qbgxsj equal to a given number and qbrksj equal to a given number"
+    },
+    {
+      "sql_name": "sql_join1",
+      "sql_exec": "SELECT test_text_merge.y FROM test_parquet,test_text_merge WHERE test_parquet.x=test_text_merge.x",
+      "sql_describe": "inter join test_parquet,test_text_merge WHERE test_parquet.x=test_text_merge.x"
+    },
+    {
+      "sql_name": "sql_join2",
+      "sql_exec": "SELECT test_text_merge.y FROM test_parquet RIGHT OUTER JOIN test_text_merge ON test_parquet.x=test_text_merge.x",
+      "sql_describe": "right outer join test_parquet,test_text_merge WHERE test_parquet.x=test_text_merge.x"
+    }
+  ]
+}

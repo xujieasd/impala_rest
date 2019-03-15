@@ -1,0 +1,41 @@
+{
+    "host": "10.38.240.28",
+    "port": 31565,
+    "operation":[
+        {
+            "sql_name": "sql_select1",
+            "sql_exec": "SELECT x FROM test_parquet2 LIMIT 5",
+            "sql_describe": "select x",
+            "sql_filter": {}
+        },
+        {
+            "sql_name": "sql_select2",
+            "sql_exec": "SELECT key,csd FROM iap_bejwt_002573_hdfs WHERE $qbgxsj.eq AND $qbrksj.eq LIMIT 5",
+            "sql_describe": "select column range from key,csd where item1 equal to a given number and item2 equal to a given number",
+            "sql_filter": {
+                "qbgxsj": "item1",
+                "qbrksj": "item2"
+            }
+        },
+        {
+            "sql_name": "sql_join1",
+            "sql_exec": "SELECT test_text_merge.y FROM test_parquet2,test_text_merge WHERE test_parquet2.x=test_text_merge.x",
+            "sql_describe": "inter join test_parquet2,test_text_merge WHERE test_parquet.x=test_text_merge.x",
+            "sql_filter": {}
+        },
+        {
+            "sql_name": "sql_join2",
+            "sql_exec": "SELECT test_text_merge.y FROM test_parquet2 RIGHT OUTER JOIN test_text_merge ON test_parquet2.x=test_text_merge.x",
+            "sql_describe": "right outer join test_parquet2,test_text_merge WHERE test_parquet.x=test_text_merge.x",
+            "sql_filter": {}
+        },
+        {
+            "sql_name": "sql_select3",
+            "sql_exec": "SELECT y FROM test_text_merge WHERE $x.gt",
+            "sql_describe": "need to fill in x",
+            "sql_filter": {
+                "x": "x"
+            }
+        }
+    ]
+}

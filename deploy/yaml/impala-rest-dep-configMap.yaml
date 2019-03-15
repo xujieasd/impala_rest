@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: impala-rest
+  labels:
+    run: impala-rest
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: impala-rest
+  template:
+    metadata:
+      labels:
+        run: impala-rest
+    spec:
+      containers:
+      - name: impala-rest
+        image: xujieasd/impala_rest:0.2
+        imagePullPolicy: IfNotPresent
+        args:
+          - "--type common"
+          - "--admin admin"
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        volumeMounts:
+          - mountPath: /impala_rest/config/
+            name: config
+      volumes:
+        - name: config
+          configMap:
+            name: impala-rest
+            items:
+            - key: config.json
+              path: config.json
+
